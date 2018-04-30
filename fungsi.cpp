@@ -28,3 +28,9 @@ void menambah_node_belakang()
 	temp2->next = temp;
 	}
 } 
+void menambah_node_depan(){
+linked_list *data_baru;
+data_baru = new linked_list;
+cout << "\tmasukkan nilai data : ";
+cin >> data_baru->urut;
+data_baru->next = NULL;
