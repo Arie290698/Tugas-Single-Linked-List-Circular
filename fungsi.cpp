@@ -47,6 +47,15 @@ data_ptr = data_baru;
 }
 } 
 
+void hapus_node_depan()
+{
+linked_list *temp;
+temp = data_ptr;
+data_ptr = data_ptr->next;
+delete temp;
+} 
+
+
 
 	
 	
