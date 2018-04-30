@@ -57,6 +57,33 @@ void hapus_node_depan()
 	delete temp;
 } 
 
+void hapus_node_belakang()
+{
+ 	linked_list *temp1, *temp2;
+ 	if (data_ptr == NULL)
+ 	cout << "\tData masih kosong" << endl;
+ 	else
+ {
+ 	temp1 = data_ptr;
+if (temp1->next == NULL)
+ {
+ 	delete temp1;
+ 	data_ptr = NULL;
+ }
+ else
+ {
+ while (temp1->next != NULL)
+ {
+    	temp2 = temp1;
+    	temp1 = temp1->next;
+ }
+ 	delete temp1;
+ 	temp2->next = NULL;
+}
+}
+}
+
+
 
 
 	
