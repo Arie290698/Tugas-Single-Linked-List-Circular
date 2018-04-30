@@ -34,3 +34,19 @@ data_baru = new linked_list;
 cout << "\tmasukkan nilai data : ";
 cin >> data_baru->urut;
 data_baru->next = NULL;
+	
+if(data_ptr == NULL)
+{
+data_ptr=data_baru;
+data_ptr->next = NULL;
+}
+else
+{
+data_baru->next = data_ptr;
+data_ptr = data_baru;
+}
+} 
+
+
+	
+	
