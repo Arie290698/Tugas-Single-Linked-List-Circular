@@ -6,6 +6,27 @@ struct linked_list {
 linked_list *data_ptr = NULL;
 linked_list *posisi;
 int option = 0; 
+
+void menambah_node_depan(){
+	linked_list *data_baru;
+	data_baru = new linked_list;
+	cout << "\tmasukkan nilai data : ";
+	cin >> data_baru->urut;
+	data_baru->next = NULL;
+	
+	
+if(data_ptr == NULL)
+{
+	data_ptr=data_baru;
+	data_ptr->next = NULL;
+}
+else
+{
+	data_baru->next = data_ptr;
+	data_ptr = data_baru;
+}
+} 
+
 void menambah_node_belakang()
 {
 	linked_list *temp, *temp2;
@@ -29,25 +50,7 @@ void menambah_node_belakang()
 	}
 } 
 
-void menambah_node_depan(){
-	linked_list *data_baru;
-	data_baru = new linked_list;
-	cout << "\tmasukkan nilai data : ";
-	cin >> data_baru->urut;
-	data_baru->next = NULL;
-	
-	
-if(data_ptr == NULL)
-{
-	data_ptr=data_baru;
-	data_ptr->next = NULL;
-}
-else
-{
-	data_baru->next = data_ptr;
-	data_ptr = data_baru;
-}
-} 
+
 
 void hapus_node_depan()
 {
@@ -83,8 +86,29 @@ if (temp1->next == NULL)
 }
 }
 
+void menyisipkan_node(){
+	linked_list *data_baru, *bantu;
+	int posisi_sisip;
 
-
-
-	
-	
+	if(data_ptr != NULL){
+		cout<<"\tAkan disisipkan menjadi data ke? : ";
+		cin>>posisi_sisip;
+		data_baru =new linked_list;
+		bantu=data_ptr;
+     
+		for(int i=1;i<posisi_sisip-1;i++) {
+			if(bantu->next != NULL)
+				bantu=bantu->next;
+			else
+				break; 
+		}
+		
+		cout << "\tMasukkan nilai data : ";
+		cin >> data_baru->urut;
+		data_baru->next=bantu->next;
+		bantu->next=data_baru;
+	}else{
+		cout<<"\tSebelum menyisipkan, masukkan data terlebih dahulu!";
+		getch();
+	} 
+}
