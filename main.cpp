@@ -4,7 +4,7 @@
 #include <conio.h> 
 using namespace std;
 
-#include "fungsi.cpp"
+#include "fungsi.h"
 
 int main(){
 	data_ptr = NULL;
