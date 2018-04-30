@@ -7,6 +7,28 @@ linked_list *data_ptr = NULL;
 linked_list *posisi;
 int option = 0; 
 
+void tampilkan(){
+	linked_list *temp;
+	temp = data_ptr;
+	cout << endl;
+	cout << "\tData Node : ";  
+
+	if (temp == NULL)
+		cout << "Data Masih Kosong" << endl;
+	else{
+		while (temp != NULL){
+			
+			cout << temp->urut << " - ";
+     
+			if (temp == posisi)
+			cout << " ";
+
+			temp = temp->next; 
+		} 
+		cout << "" << endl;
+	}
+} 
+
 void menambah_node_depan(){
 	linked_list *data_baru;
 	data_baru = new linked_list;
