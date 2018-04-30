@@ -112,3 +112,54 @@ void menyisipkan_node(){
 		getch();
 	} 
 }
+
+
+void hapus_node_tertentu(){
+	int jumlah_data,posisi_dihapus,penghapus;
+	linked_list *hapus, *bantu;
+	
+	if(data_ptr != NULL){
+		cout<<"\tData keberapa yang akan dihapus? : ";
+		cin>>posisi_dihapus;
+		
+		jumlah_data=1;
+		bantu=data_ptr;
+		while(bantu->next != NULL){
+			bantu=bantu->next;
+			jumlah_data++;
+		}
+		
+		if((posisi_dihapus<1)||(posisi_dihapus>jumlah_data)){
+			cout<<"\tSebelum menghapus, masukkan data terlebih dahulu!";
+		}else{
+			bantu=data_ptr;
+			penghapus=1;
+			
+			while(penghapus<(posisi_dihapus-1)){
+				bantu=bantu->next;
+				penghapus++;
+			}
+			
+			hapus=bantu->next;
+			bantu->next=hapus->next;
+			delete hapus;
+		}
+	}else 
+		cout<<"\tSebelum menghapus, masukkan data terlebih dahulu!";
+		getch();
+}
+
+int init(int nilai){
+	linked_list *data_baru;
+	data_baru = new linked_list;
+	data_baru->urut=nilai;
+	data_baru->next = NULL;
+
+	if(data_ptr == NULL){
+		data_ptr=data_baru;
+		data_ptr->next = NULL;
+	}else{
+		data_baru->next = data_ptr;
+		data_ptr = data_baru;
+	}
+}
